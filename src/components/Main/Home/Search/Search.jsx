@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import defaultImg from '../../../../assets/404ERROR.jpg';
+import {SearchContext} from '../../../../context/SearchContext'
+import {ListContext} from '../../../../context/ListContext'
 
-const Search = ({ setValue, setPokemon }) => {
-  const [searchPokemon, setSearchPokemon] = useState([]);
+
+const Search = () => {
   const [timeDebounce, setTimeDebounce] = useState(0);
-
+  const {searchPokemon, updateSearch} = useContext(SearchContext) //data
+  const {pokemon, updateList} = useContext(ListContext)
+  
   const handleChange = (e) => {
     const value = e.target.value.trim();
     if (timeDebounce) {
@@ -21,20 +25,20 @@ const Search = ({ setValue, setPokemon }) => {
     try {
       const resultadoBusqueda = searchPokemon.find((input)=>input.name === pokemonName)
     if(resultadoBusqueda){
-      setPokemon([resultadoBusqueda])
+      updateList([resultadoBusqueda])
     }else{
       const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       if (!resp.ok) {
         throw new Error("Pokemon not found");
       }
       const data = await resp.json();
-      setPokemon([data]);
-      setSearchPokemon([...searchPokemon, data])
+      updateList([data]);
+      updateSearch([...searchPokemon, data])
       
     }  
     } catch (error) {
       console.error("Error fetching pokemon data:", error);
-      setPokemon([
+      updateList([
         { name: "Error 404", id: null, sprites: { other: { "official-artwork": { front_default: defaultImg } } } }
       ]);
     }
@@ -44,16 +48,16 @@ const Search = ({ setValue, setPokemon }) => {
     e.preventDefault();
     const pokemonName = e.target.pokemonName.value.trim();
     if(pokemonName === ''){
-      setPokemon([
+      updateList([
         { name: "Error 404", id: null, sprites: { other: { "official-artwork": { front_default: defaultImg } } } }
       ]);
     }else{
-      setValue(pokemonName);
+      updateSearch(pokemonName);
       fetchPokemon(pokemonName);
       e.target.pokemonName.value = '';
     }  
   };
- 
+
   return (
     <article>
       <form onSubmit={handleSubmit} className="form-search">

@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PokemonCard from './PokemonCard';
+import { ListContext } from "../../../../context/ListContext";
 
-const PokemonList = ({ pokemon, setPokemon }) => {
+const PokemonList = () => {
+  const {pokemon, updateList} = useContext(ListContext)
   
   useEffect(() => {
     const getAllPokemon = async () => {
@@ -18,16 +20,14 @@ const PokemonList = ({ pokemon, setPokemon }) => {
             return dataPokemon;
           })
         );
-        console.log(pokemonsData)
-        setPokemon(pokemonsData);
+        updateList(pokemonsData);
         
       } catch (error) {
         console.error("Error fetching pokemon data:", error);
       }
-      
     };
     getAllPokemon();
-  }, [setPokemon]);
+  }, []);
 
   const paintPokemon = () => {
     return pokemon.map((dataItem) => (

@@ -1,0 +1,64 @@
+.card_details {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px white;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    color: blue;
+    
+section {
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 24px;
+      color: black;
+    }
+
+    span {
+      display: block;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  div {
+    margin-bottom: 10px;
+
+    &:last-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        flex: 1;
+        font-size: 14px;
+        margin: 0 10px 0 0;
+        text-align: left;
+      }
+
+      progress {
+        flex: 2;
+        height: 20px;
+        margin: 0 10px;
+
+        &::-webkit-progress-bar {
+          background-color: red;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        &::-webkit-progress-value {
+          background-color: red;
+          border-radius: 10px 0 0 10px;
+        }
+      }
+    }
+  }
+}

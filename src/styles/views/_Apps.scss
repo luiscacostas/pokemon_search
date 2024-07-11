@@ -1,7 +1,11 @@
 body{
-    background-color: rgb(40, 34, 156);
+    background: rgba(231,247,52,1);
+background: -moz-linear-gradient(left, rgba(231,247,52,1) 0%, rgba(231,247,52,1) 12%, rgba(39,45,230,1) 92%, rgba(39,45,230,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(231,247,52,1)), color-stop(12%, rgba(231,247,52,1)), color-stop(92%, rgba(39,45,230,1)), color-stop(100%, rgba(39,45,230,1)));
+background: -webkit-linear-gradient(left, rgba(231,247,52,1) 0%, rgba(231,247,52,1) 12%, rgba(39,45,230,1) 92%, rgba(39,45,230,1) 100%);
 }
 .contenedor{
     max-width: 1800px;
     margin: 0 auto;
+    display: flex;
 }
