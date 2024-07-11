@@ -18,7 +18,7 @@ const PokemonList = ({ pokemon, setPokemon }) => {
             return dataPokemon;
           })
         );
-        
+        console.log(pokemonsData)
         setPokemon(pokemonsData);
         
       } catch (error) {
@@ -40,8 +40,7 @@ const PokemonList = ({ pokemon, setPokemon }) => {
   };
 
   return (
-    <article>
-      <h2>Lista de Pokemon</h2>
+    <article className='contenedor-list'>
       {pokemon.length !== 0 ? paintPokemon() : <p>Cargando...</p>}
     </article>
   );

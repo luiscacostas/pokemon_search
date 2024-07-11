@@ -1,0 +1,36 @@
+@import '../utils/variables.scss';
+.form-search{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  
+    &>div{
+        padding: 25px;
+        display: flex;
+        gap: 30px;
+        
+        &>input {
+            border-radius: 5px;
+            outline: 15px solid yellow;
+            border: 0;
+            outline-offset: 3px;
+            transition: 0.25s;
+            font-size: 25px;
+            
+          }
+        &>button {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            background-color: $rojoPokemon;
+            color: white;
+            font-size: 25px;
+
+            &:hover{
+                background-color: $yellowPokemon;
+                color: black;
+            }
+        }
+    }
+}

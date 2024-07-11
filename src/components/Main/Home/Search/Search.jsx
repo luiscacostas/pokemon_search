@@ -28,7 +28,6 @@ const Search = ({ setValue, setPokemon }) => {
         throw new Error("Pokemon not found");
       }
       const data = await resp.json();
-      console.log('no he entrado')
       setPokemon([data]);
       setSearchPokemon([...searchPokemon, data])
       
@@ -57,10 +56,9 @@ const Search = ({ setValue, setPokemon }) => {
  
   return (
     <article>
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="form-search">
         <div>
-          <label htmlFor="name">Pokemon</label>
-          <input type="text" name='pokemonName' id="name" onChange={handleChange} />
+          <input type="text" name='pokemonName' id="name" onChange={handleChange} placeholder="Busca un Pokemon..." />
           <button type="submit">Buscar</button>
         </div>
       </form>
