@@ -1,6 +1,6 @@
 @import '../utils/variables.scss';
 form {
-  max-width: 600px;
+  width: 80%;
   margin: 0 auto;
   background-color: rgb(29, 231, 120);
   border-radius: 10px;
@@ -18,7 +18,7 @@ form {
   input[type="text"],
   input[type="url"],
   select {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 20px;
     border: 2px solid $verdePokemon;

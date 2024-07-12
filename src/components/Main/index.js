@@ -1,5 +1,5 @@
 setTimeout(() => {
     document.querySelector('.pokemon').style.display = 'none';
-  }, 2000);
+  }, 1000);
 
 export { default } from "./Main";

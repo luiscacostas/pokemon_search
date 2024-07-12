@@ -54,13 +54,13 @@ const New = () => {
   return (<div>
     <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
       <label>ID</label>
-      <input {...register("id", { min: 1303, required: true })} />
+      <input type="text" {...register("id", { min: 1303, required: true })} />
       {errors.id && (
         <p>Pokemon ID must be greater than 1302</p>
       )}
 
       <label>Nombre de tu Pokemon</label>
-      <input
+      <input type="text"
         {...register("name", {
           required: true,
           maxLength: 20,
@@ -129,7 +129,7 @@ const New = () => {
       {typeOne && typeTwo && typeOne === typeTwo && <p>Both types must not be the same</p>}
 
       <label>Imagen URL</label>
-      <input
+      <input type="text"
         placeholder="Introduce la URL"
         {...register("img", {
           required: true,
