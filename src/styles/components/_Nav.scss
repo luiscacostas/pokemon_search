@@ -1,12 +1,11 @@
 @import '../utils/variables.scss';
 .nav {
-    background-color: $bluePokemon;
-    width: 100%;
+    background-color: $rojoPokemon;
+    width:90%;
     text-align: center;
     padding: 20px;
     font-size: 30px;
-    
-
+    margin: 0 auto;
     ul {
         list-style: none;
         margin: 0;
