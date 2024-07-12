@@ -7,12 +7,12 @@ import ReactPaginate from 'react-paginate';
 const PokemonList = () => {
   const { pokemon, updateList } = useContext(ListContext);
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 50; // Número de Pokémon por página
+  const itemsPerPage = 50; 
 
   useEffect(() => {
     const getAllPokemon = async () => {
       try {
-        const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
+        const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=100`);
         const data = await resp.json();
         const allPokemons = data.results;
 
