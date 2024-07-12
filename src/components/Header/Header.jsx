@@ -5,7 +5,9 @@ import logo from '../../assets/pokemon-23-logo.png'
 const Header = () => {
   return <header className="header">
     <div>
-      <img src={logo} alt="logo pokemon" />
+      <a href="/">
+        <img src={logo} alt="logo pokemon" />
+      </a>
     </div>
       <Nav />
   </header>;

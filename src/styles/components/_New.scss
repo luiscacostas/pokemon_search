@@ -1,91 +1,71 @@
+@import '../utils/variables.scss';
 form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: rgba(248,80,50,1);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-  
-    input[type="text"],
-    input[type="url"],
-    select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 2px solid rgb(21, 255, 0);
-      border-radius: 8px;
-    }
-  
-    input[type="range"] {
-      width: calc(100% - 60px);
-      margin-right: 10px;
-    }
-  
-    span {
-      display: inline-block;
-      width: 50px;
-    }
-  
-    .error-message {
-      color: rgb(27, 20, 20);
-      font-size: 14px;
-      margin-top: -15px;
-      margin-bottom: 15px;
-    }
-  
-    .submit-button {
-      background-color: green;
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: 18px;
-      margin-top: 20px;
-    }
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgb(29, 231, 120);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px $black;
+  padding: 20px;
+  font-family: 'Pokemon GB', sans-serif;
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: $black;
   }
-  
-  // Estilos para títulos y subtítulos
-  h1, h2 {
-    text-align: center;
-    color: yellow;
-    margin-bottom: 20px;
-  }
-  
-  // Estilos específicos de elementos
-  .pokemon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  
-    img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid yellow;
-      margin-bottom: 20px;
-    }
-  }
-  
-  .stats-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  
-    label {
-      flex: 1 1 45%;
-      margin-bottom: 10px;
-    }
-  }
-  
+
+  input[type="text"],
+  input[type="url"],
   select {
-    appearance: none;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid $verdePokemon;
+    border-radius: 8px;
+    background-color: $white;
+    font-size: 16px;
+    color: #333; 
   }
+
+  input[type="range"] {
+    width: calc(100% - 60px);
+    margin-right: 10px;
+    background-color: $bluePokemon;
+    border-radius: 5px;
+  }
+
+  span {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: $white;
+  }
+
+  .submit-button {
+    background-color: $bluePokemon;
+    color: $white;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $bluePokemon;
+    }
+  }
+}
+
+h1, h2 {
+  text-align: center;
+  color: $yellowPokemon;
+  margin-bottom: 20px;
+}
+

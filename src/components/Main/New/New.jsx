@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useState } from "react";
+import React, { useRef, useContext, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { SearchContext } from '../../../context/SearchContext';
 
@@ -26,7 +26,7 @@ const New = () => {
       id: data.id,
       name: data.name,
       sprites: { other: { "official-artwork": { front_default: data.img } } },
-      types: [{ type: { name: data.typeOne } }, data.typeTwo ? { type: { name: data.typeTwo } } : null].filter(Boolean),
+      types: [{ type: { name: data.typeOne } },{ type: { name: data.typeTwo } }],
       height: stats.height,
       weight: stats.weight,
       stats: [
@@ -51,7 +51,7 @@ const New = () => {
   const typeOne = watch("typeOne");
   const typeTwo = watch("typeTwo");
 
-  return (
+  return (<div>
     <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
       <label>ID</label>
       <input {...register("id", { min: 1303, required: true })} />
@@ -196,8 +196,38 @@ const New = () => {
       />
       <span>{stats.weight} kg</span>
 
-      <input type="submit" />
+      <input type="submit" className="submit-button" />
     </form>
+
+    <div className="pokemon-cards">
+        {searchPokemon.map((pokemon, index) => (
+          <article key={index} className={`card_details ${typeOne}`}>
+            <section className="card-header">
+              <h3>{pokemon.name}</h3>
+              {pokemon.stats.slice(0, 3).map((stat, i) => (
+                <span key={i} className="card-stat">{stat.stat.name}: {stat.base_stat}</span>
+              ))}
+            </section>
+            <div className="card-image">
+              <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name}/>
+            </div>
+            <div className="card-info">
+              <span>Peso: {pokemon.weight} kg | Altura: {pokemon.height} m</span>
+              <span className={`card-type ${typeOne}`}>{typeOne}</span>
+            </div>
+            <div className="card-stats">
+              {pokemon.stats.map((stat, i) => (
+                <div key={i} className="stat">
+                  <p>{stat.stat.name}</p>
+                  <progress value={stat.base_stat} max={100}></progress>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+  </div>
+    
   );
 }
 

@@ -3,6 +3,13 @@
     background: $yellowPokemon;
     border: 20px solid transparent;
     border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
+    cursor: pointer;
+  }
   }
 .design-text-p{
 

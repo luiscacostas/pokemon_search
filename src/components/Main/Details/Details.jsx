@@ -27,21 +27,30 @@ const DetailsPokemon = () => {
   }
 
   return (<article className={`card_details ${typeOne}`}>
-    <section>
+    <section className="card-header">
       <h3>{name}</h3>
-      <span>{statsNames[0]} {statsValues[0]}</span>
+      <span className="card-stat">{statsNames[0]}: {statsValues[0]}</span>
     </section>
-    <div>
+    <div className="card-image">
       <img src={image} alt={name}/>
     </div>
-    <div>
-      <span>Peso:{weight/10}kg Altura{height/10}m</span>
-      <span>{typeOne}</span>
+    <div className="card-info">
+      <span>Peso: {weight/10} kg | Altura: {height/10} m</span>
+      <span className={`card-type ${typeOne}`}>{typeOne}</span>
     </div>
-    <div>
-    <p>{statsNames[0]}</p><progress value={statsValues[0]} max={100} />
-    <p>{statsNames[1]}</p><progress value={statsValues[1]} max={100} />
-    <p>{statsNames[2]}</p><progress value={statsValues[2]} max={100} />
+    <div className="card-stats">
+      <div className="stat">
+        <p>{statsNames[0]}</p>
+        <progress value={statsValues[0]} max={100}></progress>
+      </div>
+      <div className="stat">
+        <p>{statsNames[1]}</p>
+        <progress value={statsValues[1]} max={100}></progress>
+      </div>
+      <div className="stat">
+        <p>{statsNames[2]}</p>
+        <progress value={statsValues[2]} max={100}></progress>
+      </div>
     </div>
   </article>);
 };

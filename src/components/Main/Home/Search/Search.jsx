@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import defaultImg from '../../../../assets/404ERROR.jpg';
 import {SearchContext} from '../../../../context/SearchContext'
 import {ListContext} from '../../../../context/ListContext'
@@ -6,7 +6,7 @@ import {ListContext} from '../../../../context/ListContext'
 
 const Search = () => {
   const [timeDebounce, setTimeDebounce] = useState(0);
-  const {searchPokemon, updateSearch} = useContext(SearchContext) //data
+  const {searchPokemon, updateSearch} = useContext(SearchContext)
   const {pokemon, updateList} = useContext(ListContext)
   
   const handleChange = (e) => {
@@ -39,7 +39,16 @@ const Search = () => {
     } catch (error) {
       console.error("Error fetching pokemon data:", error);
       updateList([
-        { name: "Error 404", id: null, sprites: { other: { "official-artwork": { front_default: defaultImg } } } }
+        { name: "AntonioMon",
+         id: null, 
+         sprites: { other: { "official-artwork": { front_default: defaultImg } } }, 
+         height: 15,
+         weight: 1000,
+         stats: [
+          { base_stat: 100, stat: { name: 'HP' } },
+          { base_stat: 100, stat: { name: 'Attack' } },
+          { base_stat: 0, stat: { name: 'Defense' } }
+        ]}
       ]);
     }
   };
@@ -47,6 +56,7 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const pokemonName = e.target.pokemonName.value.trim();
+    
     if(pokemonName === ''){
       updateList([
         { name: "Error 404", id: null, sprites: { other: { "official-artwork": { front_default: defaultImg } } } }
@@ -59,14 +69,12 @@ const Search = () => {
   };
 
   return (
-    <article>
-      <form onSubmit={handleSubmit} className="form-search">
+      <form onSubmit={handleSubmit}className="form-search">
         <div>
           <input type="text" name='pokemonName' id="name" onChange={handleChange} placeholder="Busca un Pokemon..." />
           <button type="submit">Buscar</button>
         </div>
       </form>
-    </article>
   );
 };
 

@@ -1,13 +1,18 @@
 @import '../utils/variables.scss';
 
-.header{
-    display: block;
-    background: rgba(248,80,50,1);
-    &>div{
-        text-align: center;
-        height: 250px;
-        &>img{
-            width: 500px;
-        }
+.header {
+    background-color: $rojoPokemon;
+    text-align: center;
+    position: relative;
+    
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      img {
+        width: 300px;
+        height: auto;
+      }
     }
 }
