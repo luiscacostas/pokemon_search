@@ -1,12 +1,10 @@
 // DetallePokemon.jsx
 import React from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
-
 
 const DetailsPokemon = () => {
   
-  const {id} = useParams();
+  //const {id} = useParams();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
 
