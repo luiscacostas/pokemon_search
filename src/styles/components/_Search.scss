@@ -1,13 +1,13 @@
 @import '../utils/variables.scss';
 
 .form-search {
-    margin-top: 30px;
     background-color: rgba(231,247,52,1);
     padding: 20px 0;
-    width: 100%;
+    width: 80%;
     text-align: center;
     box-sizing: border-box; 
     margin-bottom: 40px;
+    margin-top: 30px;
   
     div {
       display: flex;

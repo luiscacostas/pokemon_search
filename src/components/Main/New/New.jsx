@@ -51,7 +51,7 @@ const New = () => {
   const typeOne = watch("typeOne");
   const typeTwo = watch("typeTwo");
 
-  return (<div>
+  return (<div className="contenedor-new">
     <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
       <label>ID</label>
       <input type="text" {...register("id", { min: 1303, required: true })} />
